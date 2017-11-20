@@ -7,7 +7,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import ContactForm from './contactform';
 import AppBar from 'material-ui/AppBar';
 
-
+// Customizes Material UI Theme
+// Can adjust other elements here as well (i.e. AppBar height, etc.)
 const theme = getMuiTheme({
   palette: {
     primary1Color: '#009688',
@@ -15,13 +16,14 @@ const theme = getMuiTheme({
   }
 });
 
+// Structure of main page
 class App extends Component {
   render() {
     return (
 
       <MuiThemeProvider muiTheme={theme}>
 
-        <AppBar title="My Contacts" />
+        <AppBar title="My Address Book" />
         <ContactForm/>
 
       </MuiThemeProvider>

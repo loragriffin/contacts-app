@@ -8,14 +8,6 @@ import MenuItem from 'material-ui/MenuItem';
 
 class ContactForm extends Component {
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      name: '',
-      type: ''
-    }
-  }
-
   render() {
     return (
       <div>
