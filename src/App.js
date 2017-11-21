@@ -22,10 +22,10 @@ class App extends Component {
     return (
 
       <MuiThemeProvider muiTheme={theme}>
-
-        <AppBar title="My Address Book" />
-        <ContactForm/>
-
+        <div>
+          <AppBar title="My Address Book" />
+          <ContactForm/>
+        </div>
       </MuiThemeProvider>
 
     );
