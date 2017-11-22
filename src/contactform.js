@@ -20,38 +20,6 @@ class ContactForm extends Component {
       city: '',
       state: '',
       zip: '',
-      contacts: [
-        {
-          key: '1',
-          name: 'Lora Griffin',
-          email: 'lora@loragriffin.com',
-          phone: '281-555-1234',
-          address: '123 Main St',
-          city: 'Houston',
-          state: 'TX',
-          zip: '77388',
-        },
-        {
-          key: '2',
-          name: 'Jane Doe',
-          email: 'jane@gmail.com',
-          phone: '713-555-4567',
-          address: '3434 Memory Lane',
-          city: 'Austin',
-          state: 'TX',
-          zip: '78341',
-        },
-        {
-          key: '3',
-          name: 'Danny Griffin',
-          email: 'danny@gmail.com',
-          phone: '713-555-4567',
-          address: '123 Main St',
-          city: 'Houston',
-          state: 'TX',
-          zip: '78341',
-        }
-      ]
     }
   }
 
@@ -69,7 +37,7 @@ class ContactForm extends Component {
 
     // create a unique ID for each contact using 'uid'
     // npm install uid -save
-    let contact = {
+    let contactOnForm = {
       key: uid(),
       name: this.state.name,
       email: this.state.email,
@@ -80,11 +48,11 @@ class ContactForm extends Component {
     };
 
     //you cannot change the state directly so you must create a temporary array into which you can push contact
-    let tempArray = this.state.contacts;
-    tempArray.push(contact);
+    // let tempArray = this.state.contacts;
+    // tempArray.push(contact);
     //reset the text fields to empty when the submit button is pushed.
     this.setState({
-      contacts: tempArray,
+      // contacts: tempArray,
       name: '',
       email: '',
       phone: '',
@@ -94,20 +62,12 @@ class ContactForm extends Component {
       zip: ''
     });
 
+    this.props.callback(contactOnForm);
+
     event.preventDefault();
   }
 
   render() {
-
-    this.state.contacts.sort(function (a, b) {
-      return a.name > b.name;
-    });
-
-    let renderList = this.state.contacts.map((c)=>{
-      return (
-        <li key={c.key}>{c.name}: {c.city}, {c.state}</li>
-      )
-    });
 
     return (
       <div>
@@ -145,9 +105,6 @@ class ContactForm extends Component {
             <RaisedButton label="Submit" type="submit" primary={true} />
           </CardActions>
           </form>
-          <ol>
-            {renderList}
-          </ol>
         </Card>
       </div>
 
